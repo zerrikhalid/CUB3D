@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 14:00:49 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:10:43 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_mlx
 	mlx_image_t		*img;
 	double			coord1;
 	double			coord2;
+	char			**map;
 }t_mlx;
 
 typedef struct s_player
@@ -60,7 +61,6 @@ typedef struct s_player
 	double	moveSpeed;
 	double	rotationSpeed;
 	t_mlx	*mlx;
-	char	**map;
 }t_player;
 
 void	ft_putstr(char *s);
