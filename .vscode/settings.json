@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "unistd.h": "c",
+        "stdio.h": "c",
+        "cub3d.h": "c",
+        "complex": "c"
+    }
+}
