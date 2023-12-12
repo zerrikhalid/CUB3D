@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:04:53 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/11 15:39:02 by araji-af         ###   ########.fr       */
+/*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
+/*   Updated: 2023/12/12 13:37:07 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@
 # include <string.h>
 # include <math.h>
 # include <limits.h>
+# include "mlx42.h"
 
+#define PI   3.14159f
+#define WIDTH 15
+#define HEIGHT 11
+#define CUBE 64
 # define BUFFER_SIZE 10
 
 typedef struct s_textures
@@ -37,6 +42,26 @@ typedef struct s_textures
 	int		c_color;
 	int		f_color;
 }	t_textures;
+
+typedef struct s_mlx
+{
+	mlx_t			*mlx;
+	mlx_image_t		*img;
+	double			coord1;
+	double			coord2;
+}t_mlx;
+
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	radius;
+	double	rotationAngle;
+	double	moveSpeed;
+	double	rotationSpeed;
+	t_mlx	*mlx;
+	char	**map;
+}t_player;
 
 void	ft_putstr(char *s);
 int		ft_strcmp(char *av, char *av2);
@@ -78,5 +103,24 @@ void	map_error(t_textures *text);
 void	f_s_assignement(char *map, t_textures *text);
 void	check_fill_textures(char **text_components, t_textures *text);
 int		check_side(char **map);
+
+//---------------------------------------///
+
+void	set_up_window(t_mlx *mlx, t_player *player);
+void	keep_window_opened(t_mlx *mlx, t_player *player);
+void	create_2d_map(t_mlx *mlx, char **map);
+void	set_up_player(t_player *player, t_mlx *mlx);
+void	rect(t_mlx *mlx, int x, int y, int color);
+void	circle(t_player *player, t_mlx *mlx);
+void	line(t_mlx *mlx,double x1, double y1, double x2, double y2);
+void	ft_hook(void *param);
+void	move_player(t_player *player, t_mlx *mlx);
+void	key_a(t_player *player);
+void	move_right(t_player *player);
+void	key_d(t_player *player);
+void	move_left(t_player *player);
+void	move_up(t_player *player);
+void	move_down(t_player *player);
+int		collision(t_player *player, double next_x, double next_y);
 
 #endif
