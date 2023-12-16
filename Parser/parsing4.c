@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:41:06 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:42 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:55:39 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 int	check_map_caracters(char **map)
 {
@@ -66,14 +66,14 @@ int	check_c_f(char *s)
 	}
 	if (count != 2)
 		return (ft_putstr("Error in Textures1\n"), 1);
-	str = ft_split_set(s);
+	str = ft_split_set(s, " \t,");
 	i = 0;
 	while (str && str[i])
 		i++;
 	if (i != 3)
 		return (free_all(str), ft_putstr("Error in Textures2\n"), 1);
 	if (check_colors_range(str))
-		return (free_all(str), ft_putstr("Error in color range\n"), 1);
+		return (free_all(str), ft_putstr("Error in colors\n"), 1);
 	free_all(str);
 	return (0);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:26:32 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:25 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 13:57:57 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 int	parse_arg(char *av)
 {
@@ -51,6 +51,7 @@ char	**split_map(char *av)
 	}
 	lines = ft_split(line, '\n');
 	free(line);
+	close(fd);
 	return (lines);
 }
 
@@ -79,7 +80,7 @@ int	check_texture_args(char **av)
 		i++;
 	if (i != 2)
 	{
-		ft_putstr("2 arguments required in each texture\n");
+		ft_putstr("Wrong format in texture\n");
 		return (1);
 	}
 	return (0);
