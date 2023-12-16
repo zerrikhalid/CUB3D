@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:11:09 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:02 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:53:27 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 static void	del_set(char **str, int i)
 {
@@ -26,12 +26,12 @@ static void	del_set(char **str, int i)
 	*str = NULL;
 }
 
-static int	word_len_set(char *s)
+static int	word_len_set(char *s, char *set)
 {
 	int	len;
 
 	len = 0;
-	while (!ft_strchr(" \t,", *s) && *s)
+	while (!ft_strchr(set, *s) && *s)
 	{
 		s++;
 		len++;
@@ -39,30 +39,30 @@ static int	word_len_set(char *s)
 	return (len);
 }
 
-static int	countword_set(char *s)
+static int	countword_set(char *s, char *set)
 {
 	int			i;
 	int			isword;
 
 	i = 0;
 	isword = 0;
-	while (ft_strchr(" \t,", *s))
+	while (ft_strchr(set, *s))
 		s++;
 	while (*s)
 	{
-		if (!ft_strchr(" \t,", *s) && isword == 0)
+		if (!ft_strchr(set, *s) && isword == 0)
 		{
 			isword = 1;
 			i++;
 		}
-		else if (ft_strchr(" \t,", *s) && !ft_strchr(" \t,", *(s + 1)))
+		else if (ft_strchr(set, *s) && !ft_strchr(set, *(s + 1)))
 			isword = 0;
 		s++;
 	}
 	return (i);
 }
 
-static void	putword_set(char **splited, char *s)
+static void	putword_set(char **splited, char *s, char *set)
 {
 	int	i;
 	int	word;
@@ -70,11 +70,11 @@ static void	putword_set(char **splited, char *s)
 	i = 0;
 	while (*s)
 	{
-		while (ft_strchr(" \t,", *s) && *s)
+		while (ft_strchr(set, *s) && *s)
 			s++;
 		if (!*s)
 			break ;
-		word = word_len_set(s);
+		word = word_len_set(s, set);
 		splited[i] = ft_substr(s, 0, word);
 		if (splited[i] == NULL)
 		{
@@ -87,15 +87,15 @@ static void	putword_set(char **splited, char *s)
 	splited[i] = NULL;
 }
 
-char	**ft_split_set(char *s)
+char	**ft_split_set(char *s, char *set)
 {
 	char	**splited;
 
 	if (s == NULL)
 		return (NULL);
-	splited = (char **)malloc(sizeof(char *) * (countword_set(s) + 1));
+	splited = (char **)malloc(sizeof(char *) * (countword_set(s, set) + 1));
 	if (!splited)
 		return (NULL);
-	putword_set(splited, s);
+	putword_set(splited, s, set);
 	return (splited);
 }

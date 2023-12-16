@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_left.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:27:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 11:04:25 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/16 18:27:56 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 void	move_left(t_player *player)
 {
 	player->rotationAngle -= player->rotationSpeed;
-	create_2d_map(player->mlx, NULL);
+	if (player->rotationAngle > 360)
+		player->rotationAngle -= 360;
+	if (player->rotationAngle < 0)
+		player->rotationAngle += 360;
+	create_2d_map(player->mlx, NULL); 
 	move_player(player, player->mlx);
 }
+ 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:20:48 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:44 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:21:32 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 void	f_s_assignement(char *map, t_textures *text)
 {
@@ -27,7 +27,7 @@ void	f_s_assignement(char *map, t_textures *text)
 		text->f = ft_strdup(&map[i]);
 }
 
-void	check_fill_textures(char **text_components, t_textures *text)
+void	check_fill_textures(char **text_components, t_textures *text, char *map)
 {
 	if (check_texture_args(text_components))
 	{
@@ -35,7 +35,11 @@ void	check_fill_textures(char **text_components, t_textures *text)
 		free_map_text(text);
 		exit(1);
 	}
-	fill_textures(text, text_components);
+	if (!ft_strcmp(text_components[0], "F")
+		|| !ft_strcmp(text_components[0], "C"))
+		f_s_assignement(map, text);
+	else
+		fill_textures(text, text_components);
 	free_all(text_components);
 }
 
@@ -67,6 +71,15 @@ int	check_side(char **map)
 		if (check_side_borders(map[i]))
 			return (1);
 		i++;
+	}
+	return (0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
 	}
 	return (0);
 }
