@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:15 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:22:45 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 void	ft_bspace(void *b, size_t n)
 {
@@ -82,6 +82,8 @@ int	ft_atoi(char *s)
 		return (-1);
 	while (*s)
 	{
+		if (!ft_isdigit(*s))
+			return (-1);
 		n = (*s - 48) * sign;
 		if (nb > (LLONG_MAX / 10) || (nb == (LLONG_MAX / 10) && n > 7))
 			return (-1);

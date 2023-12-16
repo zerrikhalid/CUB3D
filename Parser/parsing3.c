@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:52:09 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 14:12:27 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:53:42 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 void	get_textures(t_textures *text, char **map)
 {
@@ -25,13 +25,8 @@ void	get_textures(t_textures *text, char **map)
 		map_error(text);
 	while (map[i] && i < 6)
 	{
-		if (!ft_strncmp(map[i], "C", 1) || !ft_strncmp(map[i], "F", 1))
-			f_s_assignement(map[i], text);
-		else
-		{
-			text_components = ft_split(map[i], ' ');
-			check_fill_textures(text_components, text);
-		}
+		text_components = ft_split_set(map[i], " \t");
+		check_fill_textures(text_components, text, map[i]);
 		i++;
 	}
 	if (is_valid_textures(text))
