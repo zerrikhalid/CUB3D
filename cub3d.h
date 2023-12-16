@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 14:10:43 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/16 20:02:28 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@
 # include <limits.h>
 # include "mlx42.h"
 
-#define PI   3.14159f
-#define WIDTH 15
-#define HEIGHT 11
-#define CUBE 64
+# define PI  M_PI 
+# define WIDTH 15
+# define HEIGHT 11
+# define CUBE 64
 # define BUFFER_SIZE 10
+# define WALL_STRIP_WIDTH 10
+# define NUM_RAYS (WIDTH * CUBE) / 15
+# define FOV (60.0 * (PI / 180.0))
 
 typedef struct s_textures
 {
@@ -49,17 +52,38 @@ typedef struct s_mlx
 	mlx_image_t		*img;
 	double			coord1;
 	double			coord2;
-	char			**map;
+	t_textures		*texture;
 }t_mlx;
 
 typedef struct s_player
 {
 	double	x;
 	double	y;
+	double	pivot;
+	double	hXintercept;
+	double 	hYintercept;
+	double	hXnext;
+	double	hYnext;
+	double	vXintercept;
+	double 	vYintercept;
+	double	vXnext;
+	double	vYnext;
+	double	vxstep;
+	double	vystep;
+	double	hxstep;
+	double	hystep;
+	double	hXhitwall;
+	double	hYhitwall;
+	double	vXhitwall;
+	double	vYhitwall;
+	double	ray_angle;
+	int		foundHWall;
+	int		foundVWall;
 	double	radius;
 	double	rotationAngle;
 	double	moveSpeed;
 	double	rotationSpeed;
+	double	distance;
 	t_mlx	*mlx;
 }t_player;
 
@@ -105,7 +129,8 @@ void	check_fill_textures(char **text_components, t_textures *text);
 int		check_side(char **map);
 
 //---------------------------------------///
-
+void	cast_all_rays(t_player	*player);
+double	d_to_r(double deg);
 void	set_up_window(t_mlx *mlx, t_player *player);
 void	keep_window_opened(t_mlx *mlx, t_player *player);
 void	create_2d_map(t_mlx *mlx, char **map);
@@ -122,5 +147,10 @@ void	move_left(t_player *player);
 void	move_up(t_player *player);
 void	move_down(t_player *player);
 int		collision(t_player *player, double next_x, double next_y);
-
+void	cast_rays(t_player *player);
+void	raycasting(t_player *player);
+int		isup(t_player *player);
+int		isdown(t_player *player);
+int		isright(t_player *player);
+int		isleft(t_player *player);
 #endif

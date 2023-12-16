@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_collision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:21:59 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 11:15:34 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 22:44:48 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ int collision(t_player *player, double next_x, double next_y)
 		return (0);
 	return (1);
 }
+ 

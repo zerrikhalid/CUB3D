@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_down.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:27:26 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 11:08:45 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/13 20:09:12 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	move_down(t_player *player)
 {
-	double next_y;
+	double next_y; 
 	double next_x;
 
-	next_y = sin(player->rotationAngle) * player->moveSpeed;
-	next_x = cos(player->rotationAngle) * player->moveSpeed;
+	next_y = sin(d_to_r(player->rotationAngle)) * player->moveSpeed;
+	next_x = cos(d_to_r(player->rotationAngle)) * player->moveSpeed;
 	if (!collision(player, -next_x, -next_y))
 	{
 		player->y -= next_y;
