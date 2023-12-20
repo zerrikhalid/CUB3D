@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:38 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/16 23:16:55 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 17:02:48 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_map_text(t_textures *text)
 	free(text);
 }
 
-char	**map_retriever(t_textures *text, char **map)
+void	map_retriever(t_textures *text, char **map)
 {
 	int		i;
 	int		j;
@@ -46,7 +46,7 @@ char	**map_retriever(t_textures *text, char **map)
 	}
 	text->mapp = malloc(sizeof(char *) * (j + 1));
 	if (!text->mapp)
-		return (NULL);
+		return ;
 	i = 0;
 	j = 6;
 	while (map[j])
@@ -57,7 +57,7 @@ char	**map_retriever(t_textures *text, char **map)
 		i++;
 		j++;
 	}
-	return (text->mapp[i] = 0, free_all(map), text->mapp);
+	return (text->mapp[i] = 0, free_all(map), free(NULL));
 }
 
 int	check_pos(char **map, t_textures *text)

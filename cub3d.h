@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/19 20:07:22 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:56:09 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_textures
 	int		y;
 	int		c_color;
 	int		f_color;
+	double	ra;
 }	t_textures;
 
 typedef struct s_mlx
@@ -92,6 +93,7 @@ typedef struct s_player
 	double	sideDirection;
 	double	distance_p_plane;
 	double	wallstripheight;
+	t_textures *text;
 	t_mlx	*mlx;
 }t_player;
 
@@ -120,7 +122,7 @@ int		check_zero_neighbours(char **map);
 void	ft_bspace(void *b, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_strcpy(char *dst, char *src);
-char	**map_retriever(t_textures	*text, char	**map);
+void	map_retriever(t_textures *text, char **map);
 int		max_lenght(char	**map);
 int		check_texture_args(char **av);
 int		is_valid_textures(t_textures *text);
@@ -163,5 +165,8 @@ double	distance(t_player *player, int c);
 double	xyhorizonral(t_player *player);
 double	xyVertical(t_player *player);
 void	raycasting(t_player *player);
+void	glob_pars(char **av, t_textures *text);
+void	get_rotaion_angle(t_textures *text);
+
 
 #endif
