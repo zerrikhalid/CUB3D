@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   circle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:19:56 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/12 10:44:03 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/18 01:46:37 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void circle(t_player *player, t_mlx *mlx)
 	int y;
 
 	x = h;
-    while (x <= player->x + CUBE) 
+    while (x <= player->x + CUBE)
 	{
 		y = k;
 		while (y <= player->y + CUBE) 
 		{
-            if (pow(x - player->x, 2) + pow(y - player->y, 2) <= pow(player->radius, 2)) 
-				mlx_put_pixel(mlx->img, x, y, 0xFF0000FF);
+            if (pow(x -  player->x, 2) + pow(y - player->y, 2) <= pow(player->radius, 2)) 
+				mlx_put_pixel(mlx->img, x, y, 0xFFFFFFFF);
 			y++;
         }
 		x++;

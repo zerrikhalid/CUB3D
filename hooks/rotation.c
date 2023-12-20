@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_down.c                                         :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 16:27:26 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/13 20:09:12 by kzerri           ###   ########.fr       */
+/*   Created: 2023/12/11 16:27:35 by kzerri            #+#    #+#             */
+/*   Updated: 2023/12/18 19:32:31 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	move_down(t_player *player)
+void	rotate(t_player *player)
 {
-	double next_y; 
-	double next_x;
-
-	next_y = sin(d_to_r(player->rotationAngle)) * player->moveSpeed;
-	next_x = cos(d_to_r(player->rotationAngle)) * player->moveSpeed;
-	if (!collision(player, -next_x, -next_y))
-	{
-		player->y -= next_y;
-		player->x -= next_x;
-		create_2d_map(player->mlx, NULL);
-		move_player(player, player->mlx);
-	}
-}
+	player->rotationAngle += player->rotationSpeed * player->turndirection;
+	if (player->rotationAngle > 360)
+		player->rotationAngle -= 360;
+	if (player->rotationAngle < 0)
+		player->rotationAngle += 360;
+} 
+ 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:52:09 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/13 14:53:42 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/16 23:18:21 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	get_textures(t_textures *text, char **map)
 {
