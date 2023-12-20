@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:15:42 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/18 22:43:37 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 17:05:26 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	floor_ceil(t_player *player)
 		while (j < (WIDTH * CUBE))
 		{
 			if (i < (HEIGHT * CUBE) / 2)
-				mlx_put_pixel(player->mlx->img, j, i, 0x3DD5F0FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->c_color);
 			else
-				mlx_put_pixel(player->mlx->img, j, i, 0x8696A9FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->f_color);
 			j++;
 		}
 		i++;
@@ -39,10 +39,10 @@ void	floor_ceil(t_player *player)
 }
 void	set_up_player(t_player *player, t_mlx *mlx)
 {
-	player->x = WIDTH * CUBE / 2;
-	player->y = HEIGHT * CUBE / 2;
+	player->x = player->text->x;
+	player->y = player->text->y;
 	player->radius = 7.0;
-	player->rotationAngle = 90;
+	player->rotationAngle = player->text->ra;
 	player->mlx = mlx;
 	player->moveSpeed = 3;
 	player->turndirection = 0;
@@ -51,7 +51,7 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 	player->rotationSpeed = 1;
 	player->distance_p_plane = ((WIDTH * CUBE) / 2) * tan(FOV / 2);
 	floor_ceil(player);
-	raycasting(player);
+	raycasting(player);  
 }  
 
 

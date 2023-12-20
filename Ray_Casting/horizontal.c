@@ -14,20 +14,6 @@
 
 #include "../cub3d.h"
 
-int matrix4[12][16] = {
-		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-		{1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
-		{1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-};
-
 static void	find_wall(t_player *player)
 {
 	while (player->hXnext >= 0 && player->hXnext <= (WIDTH * CUBE) &&
@@ -35,7 +21,7 @@ static void	find_wall(t_player *player)
 	{
 		if (isup(player))
 			player->pivot = 1;
-		if (matrix4[(int)(player->hYnext - player->pivot)/ 64][(int)player->hXnext / 64] == 1)
+		if (player->text->mapp[(int)(player->hYnext - player->pivot)/ 64][(int)player->hXnext / 64] == '1')
 		{
 			player->foundHWall = true;
 			player->hXhitwall = player->hXnext;
