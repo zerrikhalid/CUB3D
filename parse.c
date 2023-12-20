@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:21:14 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/20 17:01:31 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:49:28 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	glob_pars(char **av, t_textures *text)
 	map_retriever(text, lines);
 	check_map(text);
 	get_rotaion_angle(text);
+	get_map_lenght(text);
 }
 
 void	get_rotaion_angle(t_textures *text)
@@ -50,4 +51,14 @@ void	get_rotaion_angle(t_textures *text)
 		}
 		i++;
 	}
+}
+
+void	get_map_lenght(t_textures *text)
+{
+	int	i;
+
+	i = 0;
+	while (text->mapp[i])
+		i++;
+	text->mapp_h = i;
 }

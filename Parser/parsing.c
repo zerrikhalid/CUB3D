@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:38 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/20 17:02:48 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:48:22 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ void	map_retriever(t_textures *text, char **map)
 		j++;
 	}
 	text->mapp = malloc(sizeof(char *) * (j + 1));
+	text->mapp_w = max_lenght(map);
 	if (!text->mapp)
 		return ;
 	i = 0;
 	j = 6;
 	while (map[j])
 	{
-		text->mapp[i] = ft_calloc(max_lenght(map) + 1, 1);
+		text->mapp[i] = ft_calloc(text->mapp_w + 1, 1);
 		ft_strcpy(text->mapp[i], map[j]);
 		text->mapp[i][max_lenght(map)] = 0;
 		i++;
