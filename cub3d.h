@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/20 16:56:09 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:49:17 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_textures
 	int		y;
 	int		c_color;
 	int		f_color;
+	int		mapp_h;
+	int		mapp_w;
 	double	ra;
 }	t_textures;
 
@@ -167,6 +169,6 @@ double	xyVertical(t_player *player);
 void	raycasting(t_player *player);
 void	glob_pars(char **av, t_textures *text);
 void	get_rotaion_angle(t_textures *text);
-
+void	get_map_lenght(t_textures *text);
 
 #endif
