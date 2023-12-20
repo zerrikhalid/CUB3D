@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:21:59 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/13 22:44:48 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/18 22:40:01 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int matrix1[12][16] = {
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
-int collision(t_player *player, double next_x, double next_y)
+int	collision(t_player *player, double next_x, double next_y)
 {
 	if (player->x < 0 || player->x > (WIDTH * CUBE) || player->y < 0 || player->y > (HEIGHT * CUBE))
 		return (1);
@@ -34,4 +34,3 @@ int collision(t_player *player, double next_x, double next_y)
 		return (0);
 	return (1);
 }
- 

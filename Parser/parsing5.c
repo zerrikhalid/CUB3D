@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:20:48 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 15:21:32 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/16 23:18:21 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	f_s_assignement(char *map, t_textures *text)
 {

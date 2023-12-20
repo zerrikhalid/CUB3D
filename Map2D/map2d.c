@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map2d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:09:41 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/11 16:40:47 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 15:53:07 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ void	create_2d_map(t_mlx *mlx, char **map)
 	map = NULL;
 	
 	int	x;
-	int y;
+	int	y;
 
 	x = 0;
-	while (x < 11)
+	while (map[x])
 	{
 		y = 0;
-		while (y < 15)
+		while (map[x][y])
 		{
-			if (matrix[x][y] == 1)
+			if (map[x][y] == 1)
 				rect(mlx, x * CUBE, y * CUBE, 0x000000FF);
 			else
 				rect(mlx, x * CUBE, y * CUBE, 0xFFFFFFFF);

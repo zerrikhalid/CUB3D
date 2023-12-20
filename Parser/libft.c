@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/12 15:22:45 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/16 22:29:11 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	ft_bspace(void *b, size_t n)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:11:09 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/13 14:53:27 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/16 22:28:39 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 static void	del_set(char **str, int i)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:08:10 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/13 14:47:21 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/16 22:27:44 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,5 @@ int	main(int ac, char **av)
 	get_textures(text, lines);
 	map_retriever(text, lines);
 	check_map(text);
-	printf("SO : %s\n", text->so);
-	printf("WE : %s\n", text->we);
-	printf("NO : %s\n", text->no);
-	printf("EA : %s\n", text->ea);
-	printf("F : %s\n", text->f);
-	printf("C : %s\n", text->c);
-	while (text->mapp[i])
-		printf("%s\n", text->mapp[i++]);
 	free_map_text(text);
 }

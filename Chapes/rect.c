@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:17:47 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/13 20:28:20 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 15:53:27 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ void	rect(t_mlx *mlx, int x, int y, int color)
 
 	mlx->coord1 = x;
 	mlx->coord2 = y;
-	while (x < (mlx->coord1  + (CUBE)))
+	while (x < (mlx->coord1  + CUBE - 1))
 	{
 		j = y;
-		while (j < (mlx->coord2 + (CUBE)))
+		while (j < (mlx->coord2 + CUBE - 1))
 		{
 	 		mlx_put_pixel(mlx->img, j, x, color);
-			if (j == (mlx->coord2 + (CUBE - 1))  || x == (mlx->coord1  + (CUBE - 1)) || !x || !j)
-	 			mlx_put_pixel(mlx->img, j, x, color ^ 0xffffff00);
 			j++;
 		}
 		x++;

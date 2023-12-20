@@ -4,6 +4,7 @@
 		"stdio.h": "c",
 		"cub3d.h": "c",
 		"complex": "c",
-		"iterator": "c"
+		"iterator": "c",
+		"algorithm": "c"
 	}
 }
