@@ -6,11 +6,12 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 23:47:31 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/18 19:50:00 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:13:18 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 
 void	wall_projection(t_player *player, int i)
 {
@@ -20,7 +21,7 @@ void	wall_projection(t_player *player, int i)
 
 	if (player->h_distance < player->v_distance)
 	{
-		double pd = player->h_distance * cos( d_to_r(player->rotationAngle) - player->ray_angle);
+		pd = player->h_distance * cos( d_to_r(player->rotationAngle) - player->ray_angle);
 		player->wallstripheight = (CUBE / pd) * player->distance_p_plane;
 		topheight = ((HEIGHT * CUBE) / 2) - (player->wallstripheight / 2);
 		if (topheight < 0)
