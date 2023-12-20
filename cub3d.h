@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/20 17:49:17 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:19:04 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # define PI  M_PI 
 # define CUBE 64
 # define SCALE 0.2
-# define WIDTH 15
-# define HEIGHT 11
+# define WIDTH 1280
+# define HEIGHT 720
 # define BUFFER_SIZE 10
-# define NUM_RAYS (WIDTH * CUBE)
+# define NUM_RAYS WIDTH
 # define FOV (60.0 * (PI / 180.0))
 
 typedef struct s_textures

@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:56:59 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/18 22:39:32 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/21 00:49:43 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ void	ft_hook(mlx_key_data_t keydata, void *param)
 		player->turndirection = 1;
 	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		player->turndirection = -1;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		esc(player);
 	ft_release(keydata, player);
 }

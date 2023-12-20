@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:38 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/20 17:48:22 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/21 00:24:52 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int	check_zero_neighbours(char **map)
 					|| (!ft_strchr("01NSWE", map[i - 1][j]))
 					|| !ft_strchr("01NSWE", map[i + 1][j]))
 				{
+					printf("x is : %d\n | y is : %d\n", i, j);
 					ft_putstr("Zero neignbour is invalid\n");
 					return (1);
 				}
@@ -126,8 +127,8 @@ int	check_pos_helper(char **map, int *player, t_textures *text)
 					|| (map[i + 1][j] != '0' && map[i + 1][j] != '1')
 					|| (map[i - 1][j] != '0' && map[i - 1][j] != '1'))
 					return (1);
-				text->x = i;
-				text->y = j;
+				text->x = j;
+				text->y = i;
 			}
 			j++;
 		}
