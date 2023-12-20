@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/16 22:29:11 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/21 00:50:15 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	is_valid_textures(t_textures *text)
 	free_all(str);
 	return (0);
 }
+
 
 int	ft_atoi(char *s)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:15:42 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/20 17:05:26 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/21 00:47:53 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void	floor_ceil(t_player *player)
 	int	j;
 
 	i = 0;
-	while (i < (HEIGHT * CUBE))
+	while (i < HEIGHT)
 	{
 		j = 0;
-		while (j < (WIDTH * CUBE))
+		while (j < WIDTH)
 		{
-			if (i < (HEIGHT * CUBE) / 2)
-				mlx_put_pixel(player->mlx->img, j, i, player->text->c_color);
+			if (i < HEIGHT / 2)
+				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
 			else
-				mlx_put_pixel(player->mlx->img, j, i, player->text->f_color);
+				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
 			j++;
 		}
 		i++;
@@ -39,19 +39,21 @@ void	floor_ceil(t_player *player)
 }
 void	set_up_player(t_player *player, t_mlx *mlx)
 {
-	player->x = player->text->x;
-	player->y = player->text->y;
+	player->x = player->text->x * CUBE;
+	player->y = player->text->y * CUBE;
+	player->text->mapp_h *= CUBE;
+	player->text->mapp_w *= CUBE;
 	player->radius = 7.0;
 	player->rotationAngle = player->text->ra;
 	player->mlx = mlx;
-	player->moveSpeed = 3;
+	player->moveSpeed = 6;
 	player->turndirection = 0;
 	player->walkdirection = 0;
 	player->sideDirection = 0;
 	player->rotationSpeed = 1;
-	player->distance_p_plane = ((WIDTH * CUBE) / 2) * tan(FOV / 2);
+	player->distance_p_plane = (WIDTH / 2) / tan(FOV / 2);
 	floor_ceil(player);
-	raycasting(player);  
+	raycasting(player);
 }  
 
 
@@ -65,7 +67,7 @@ void	move_player(void *par)
 	if (player->walkdirection || player->turndirection)
 		up_down(player);
 	mlx_delete_image(player->mlx->mlx, player->mlx->img);
-	player->mlx->img = mlx_new_image(player->mlx->mlx, WIDTH * CUBE, HEIGHT * CUBE);
+	player->mlx->img = mlx_new_image(player->mlx->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(player->mlx->mlx, player->mlx->img, 0, 0);
 	floor_ceil(player);
 	raycasting(player);

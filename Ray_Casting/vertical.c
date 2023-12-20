@@ -6,34 +6,20 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:28:58 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/19 19:59:59 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/20 23:45:37 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int matrix3[12][16] = {
-		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-		{1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
-		{1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-};
-
 static void	find_wall(t_player *player)
 {
-	while (player->vXnext >= 0 && player->vXnext <= (WIDTH * CUBE) &&
-		player->vYnext >= 0 && player->vYnext <= (HEIGHT * CUBE))
+	while (player->vXnext >= 0 && player->vXnext < player->text->mapp_w &&
+		player->vYnext >= 0 && player->vYnext < player->text->mapp_h)
 	{
 		if (isleft(player))
 			player->pivot = 1;
-		if (matrix3[(int)player->vYnext / 64][(int)(player->vXnext - player->pivot) / 64] == 1)
+		if (player->text->mapp[(int)player->vYnext / CUBE][(int)(player->vXnext - player->pivot) / CUBE] == '1')
 		{
 			player->foundVWall = true;
 			player->vXhitwall = player->vXnext;
