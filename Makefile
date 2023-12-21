@@ -5,7 +5,7 @@ header	=	cub3d.h
 
 CC			=	cc
 
-CFLAGS		=	-Wall -Wextra -Werror -Ofast -O3 #-fsanitize=address -g
+CFLAGS		=	-Wall -Wextra -Werror -Ofast -O3 -fsanitize=address -g
 
 RM			=	rm -rf
 

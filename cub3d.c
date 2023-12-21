@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 16:11:30 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/21 00:34:40 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/21 22:37:23 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main(int ac, char **av)
 		return (1);
 	text = NULL;
 	text = malloc(sizeof(t_textures));
-
 	glob_pars(av, text);
 	player.text = text;
 	set_up_window(&mlx, &player);
