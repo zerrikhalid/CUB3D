@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/20 21:19:04 by kzerri           ###   ########.fr       */
+/*   Created: 2023/12/22 17:29:18 by kzerri            #+#    #+#             */
+/*   Updated: 2023/12/22 17:29:21 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ typedef struct s_mlx
 	t_textures		*texture;
 }t_mlx;
 
+typedef struct s_paths
+{
+	mlx_texture_t *no;
+	mlx_texture_t *so;
+	mlx_texture_t *ea;
+	mlx_texture_t *we;
+}t_paths;
+
 typedef struct s_player
 {
 	double	x;
@@ -95,7 +103,11 @@ typedef struct s_player
 	double	sideDirection;
 	double	distance_p_plane;
 	double	wallstripheight;
+	int		is_vert;
+	double	wall_inter;
 	t_textures *text;
+	t_paths		*paths;
+	mlx_texture_t *path;
 	t_mlx	*mlx;
 }t_player;
 
@@ -170,5 +182,12 @@ void	raycasting(t_player *player);
 void	glob_pars(char **av, t_textures *text);
 void	get_rotaion_angle(t_textures *text);
 void	get_map_lenght(t_textures *text);
+double  get_xtext(double wall_hit, mlx_texture_t *t);
+double  get_ytext(double yloop, double wsh, mlx_texture_t *t);
+int 	load_png(t_paths *text, t_textures *texture);
+unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y);
+void	adjust_c(mlx_image_t *image, unsigned int xtext, unsigned int ytext, unsigned int c);
+void	check_textloads(t_paths *text, t_textures *texture);
+mlx_texture_t	*check_wich_tx(t_paths *text, t_player *player);
 
 #endif
