@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 17:15:42 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/21 23:14:28 by kzerri           ###   ########.fr       */
+/*   Created: 2023/12/22 17:29:32 by kzerri            #+#    #+#             */
+/*   Updated: 2023/12/22 17:29:35 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	floor_ceil(t_player *player)
 		while (j < WIDTH)
 		{
 			if (i < HEIGHT / 2)
-				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->c_color);
 			else
-				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->f_color);
 			j++;
 		}
 		i++;

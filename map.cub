@@ -1,18 +1,11 @@
-C   255,255,255
-F 0,0,0
-WE ./pics/bluestone.png
-SO		./pics/wood.png
+WE we.png
+SO so.png
+NO no.png
+EA ea.png
 
+F 55, 44,89
 
-
-NO  ./pics/eagle.png
-
-
-
-EA ./pics/redbrick.png
-
-
-
+C   10,0,11
 
 
 
