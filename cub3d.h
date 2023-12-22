@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/22 01:42:28 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:12:07 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_player
 	double	wall_inter;
 	t_textures *text;
 	t_paths		*paths;
+	mlx_texture_t *path;
 	t_mlx	*mlx;
 }t_player;
 
@@ -184,10 +185,9 @@ void	get_map_lenght(t_textures *text);
 double  get_xtext(double wall_hit, mlx_texture_t *t);
 double  get_ytext(double yloop, double wsh, mlx_texture_t *t);
 int 	load_png(t_paths *text, t_textures *texture);
-unsigned int	get_texture_color(t_player *player, t_paths *p, unsigned int x, unsigned int y);
+unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y);
 void	adjust_c(mlx_image_t *image, unsigned int xtext, unsigned int ytext, unsigned int c);
 void	check_textloads(t_paths *text, t_textures *texture);
-void	check_wich_tx(t_paths *text, t_player *player, double *x);
-void	check_wich_ty(t_paths *text, t_player *player, int topheight , double *y);
+mlx_texture_t	*check_wich_tx(t_paths *text, t_player *player);
 
 #endif

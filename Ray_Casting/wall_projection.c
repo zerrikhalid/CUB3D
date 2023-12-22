@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 23:47:31 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/22 01:46:24 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:37:20 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	wall_projection(t_player *player, int i)
 	double wallbottom;
 	double pd;
 	double	ytext;
-	unsigned int		color;
+	unsigned int		color = 0;
 	double	xtext;
 
 	if (player->h_distance < player->v_distance)
@@ -47,11 +47,12 @@ void	wall_projection(t_player *player, int i)
 		if (wallbottom > HEIGHT)
 			wallbottom = HEIGHT;
 	}
-	check_wich_tx(player->paths, player, &xtext);
-	while (topheight <= wallbottom && topheight < HEIGHT)
+	player->path = check_wich_tx(player->paths, player);
+	xtext = get_xtext(player->wall_inter, player->path);
+	while (topheight < wallbottom && topheight < HEIGHT)
 	{
-		check_wich_ty(player->paths, player, topheight, &ytext);
-		color = get_texture_color(player, player->paths, xtext, ytext);
+		ytext = get_ytext(topheight, player->wallstripheight, player->path);
+		color = get_texture_color(player->path, xtext, ytext);
 		adjust_c(player->mlx->img, i, topheight, color);
 		topheight++;
 	}

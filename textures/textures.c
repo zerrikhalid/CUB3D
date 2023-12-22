@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:00:16 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/22 01:41:36 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:12:12 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ double  get_ytext(double yloop, double wsh, mlx_texture_t *t)
 
 int load_png(t_paths *text, t_textures *texture)
 {
-	text->no = mlx_load_png(texture->no);
+	text->no  = mlx_load_png(texture->no);
 	text->so = mlx_load_png(texture->so);
 	text->ea = mlx_load_png(texture->ea);
 	text->we = mlx_load_png(texture->we);
@@ -44,24 +44,11 @@ int load_png(t_paths *text, t_textures *texture)
 	return (0);
 }
 
-unsigned int	get_texture_color(t_player *player, t_paths *p, unsigned int x, unsigned int y)
+unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y)
 {
 	unsigned int	*color;
 
-	if (player->is_vert)
-	{
-		if (sin(player->ray_angle) > 0)
-			color = (unsigned int *)p->so->pixels + (((p->so->width) * y) + x);
-		else
-			color = (unsigned int *)p->no->pixels + (((p->no->width) * y) + x);
-	}
-	else
-	{
-		if (cos(player->ray_angle > 0))
-			color = (unsigned int *)p->ea->pixels + (((p->ea->width) * y) + x);
-		else
-			color = (unsigned int *)p->we->pixels + (((p->we->width) * y) + x);
-	}
+	color = (unsigned int *)t->pixels + (((t->width) * y) + x);
 	return (*color);
 }
 

@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:17:35 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/22 01:43:23 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/22 03:01:59 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,20 @@ void	check_textloads(t_paths *text, t_textures *texture)
 		exit(1);
 	}
 }
-void	check_wich_tx(t_paths *text, t_player *player, double *x)
+mlx_texture_t	*check_wich_tx(t_paths *paths, t_player *player)
 {
 	if (player->is_vert)
 	{
-		if (sin(player->ray_angle) > 0)
-			*x = get_xtext(player->wall_inter, text->so);
+		if (cos(player->ray_angle) > 0)
+			return (paths->ea);
 		else
-			*x = get_xtext(player->wall_inter, text->no);
+			return (paths->we);
 	}
 	else
 	{
-		if (cos(player->ray_angle > 0))
-			*x = get_xtext(player->wall_inter, text->ea);	
-		else
-			*x = get_xtext(player->wall_inter, text->we);
-	}
-}
-void	check_wich_ty(t_paths *text, t_player *player, int topheight , double *y)
-{
-	if (player->is_vert)
-	{
 		if (sin(player->ray_angle) > 0)
-			*y = get_ytext(topheight, player->wallstripheight, text->so);
+			return (paths->so);
 		else
-			*y = get_ytext(topheight, player->wallstripheight, text->no);
-	}
-	else
-	{
-		if (cos(player->ray_angle > 0))
-			*y = get_ytext(topheight, player->wallstripheight, text->ea);
-		else
-			*y = get_ytext(topheight, player->wallstripheight, text->we);
+			return (paths->no);
 	}
 }
