@@ -31,7 +31,6 @@ int main(int ac, char **av)
 		return (1);
 	text = NULL;
 	text = malloc(sizeof(t_textures));
-
 	glob_pars(av, text);
 	player.text = text;
 	set_up_window(&mlx, &player);
