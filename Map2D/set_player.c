@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:15:42 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/21 00:47:53 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:35:36 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	floor_ceil(t_player *player)
 		while (j < WIDTH)
 		{
 			if (i < HEIGHT / 2)
-				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->c_color);
 			else
-				mlx_put_pixel(player->mlx->img, j, i, 0x612000FF);
+				mlx_put_pixel(player->mlx->img, j, i, player->text->f_color);
 			j++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/21 00:50:15 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/21 17:34:02 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ int	is_valid_textures(t_textures *text)
 	if (check_c_f(text->c) || check_c_f(text->f))
 		return (1);
 	str = ft_split(text->c, ',');
-	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8;
+	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8 | 255;
 	text->c_color = c;
 	free_all(str);
 	str = ft_split(text->f, ',');
-	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8;
+	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8  | 255;
 	text->f_color = c;
 	free_all(str);
 	return (0);
