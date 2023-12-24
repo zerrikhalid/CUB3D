@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:26:32 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/23 20:18:22 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:48:13 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ char	**split_map(t_textures *text, char *av)
 	lines = ft_split(line, '\n');
 	free(line);
 	if (text->map_valid)
-	{
-		ft_putstr("newlines inside the map\n");
-		exit (1);
-	}
+		new_line_err();
 	close(fd);
 	return (lines);
 }

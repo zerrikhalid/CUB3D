@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 20:32:14 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 23:49:56 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 double	d_to_r(double deg)
 {
-	return (deg * PI/180);
+	return (deg * (PI / 180));
 }
 
 void	floor_ceil(t_player *player)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -37,6 +37,7 @@ void	floor_ceil(t_player *player)
 		i++;
 	}
 }
+
 void	set_up_player(t_player *player, t_mlx *mlx)
 {
 	player->x = (player->text->x * CUBE) + 32;
@@ -44,36 +45,36 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 	player->text->mapp_h *= CUBE;
 	player->text->mapp_w *= CUBE;
 	player->radius = 7.0;
-	player->rotationAngle = player->text->ra;
+	player->rotationangle = player->text->ra;
 	player->mlx = mlx;
-	player->moveSpeed = 6;
+	player->fov = (60 * PI) / 180;
+	player->movespeed = 6;
 	player->turndirection = 0;
 	player->walkdirection = 0;
-	player->sideDirection = 0;
-	player->rotationSpeed = 1;
+	player->sidedirection = 0;
+	player->rotationspeed = 1;
 	player->stop_mouse = -1;
-	player->distance_p_plane = (WIDTH / 2) / tan(FOV / 2);
+	player->distance_p_plane = (WIDTH / 2) / tan(player->fov / 2);
 	floor_ceil(player);
 	raycasting(player);
-}  
-
+}
 
 void	move_player(void *par)
 {
-	t_player *player;
+	t_player	*player;
 	int			x;
 	int			y;
 
 	player = par;
 	if (player->stop_mouse != 1)
 		return ;
-	if (player->sideDirection || player->turndirection)
+	if (player->sidedirection || player->turndirection)
 		left_right(player);
 	if (player->walkdirection || player->turndirection)
 		up_down(player);
 	mlx_get_mouse_pos(player->mlx->mlx, &x, &y);
 	x -= WIDTH / 2;
-	player->rotationAngle += (double)x / 10;
+	player->rotationangle += (double)x / 10;
 	mlx_set_mouse_pos(player->mlx->mlx, WIDTH / 2, HEIGHT / 2);
 	mlx_set_cursor_mode(player->mlx->mlx, MLX_MOUSE_HIDDEN);
 	mlx_delete_image(player->mlx->mlx, player->mlx->img);
@@ -83,4 +84,3 @@ void	move_player(void *par)
 	floor_ceil(player);
 	raycasting(player);
 }
-

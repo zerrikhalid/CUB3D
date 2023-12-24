@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:09:56 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 01:22:40 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:12:19 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	set_up_window(t_mlx *mlx, t_player *player)
 	mlx->img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	set_up_player(player, mlx);
 }
+
 void	keep_window_opened(t_mlx *mlx, t_player *player)
 {
-	void *param;
+	void	*param;
 
 	param = player;
 	mlx_key_hook(mlx->mlx, &ft_hook, param);

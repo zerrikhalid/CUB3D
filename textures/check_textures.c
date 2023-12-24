@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:17:35 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 01:07:44 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:43:00 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	check_textloads(t_textures *texture)
 		exit(1);
 	}
 }
+
 mlx_texture_t	*check_wich_tx(t_paths *paths, t_player *player)
 {
 	if (player->is_vert)

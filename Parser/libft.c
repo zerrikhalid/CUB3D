@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 01:52:22 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:50:42 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	ft_strcpy(char *dst, char *src)
 
 int	is_valid_textures(t_textures *text)
 {
-	char	**str;
-	unsigned int		c;
+	char			**str;
+	unsigned int	c;
 
 	c = 0;
 	if (!text->no || !text->so || !text->we
@@ -59,16 +59,17 @@ int	is_valid_textures(t_textures *text)
 	if (check_c_f(text->c) || check_c_f(text->f))
 		return (1);
 	str = ft_split_set(text->c, " \t,");
-	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8 | 255;
+	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8
+		| 255;
 	text->c_color = c;
 	free_all(str);
 	str = ft_split_set(text->f, " \t,");
-	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8 | 255;
+	c = ft_atoi(str[0]) << 24 | ft_atoi(str[1]) << 16 | ft_atoi(str[2]) << 8
+		| 255;
 	text->f_color = c;
 	free_all(str);
 	return (0);
 }
-
 
 int	ft_atoi(char *s)
 {

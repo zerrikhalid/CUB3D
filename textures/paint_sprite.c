@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paint_sprite.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 22:10:42 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 01:07:02 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:44:04 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ void	put_fframe(t_player *player, int flag)
 	if (flag == 1)
 	{
 		mlx_delete_image(player->mlx->mlx, player->mlx->text);
-		player->mlx->text = mlx_texture_to_image(player->mlx->mlx, player->paths->frame2);
+		player->mlx->text = mlx_texture_to_image(player->mlx->mlx,
+				player->paths->frame2);
 		mlx_image_to_window(player->mlx->mlx, player->mlx->text, 120, 125);
 	}
 	else
 	{
 		mlx_delete_image(player->mlx->mlx, player->mlx->text);
-		player->mlx->text = mlx_texture_to_image(player->mlx->mlx, player->paths->frame1);
+		player->mlx->text = mlx_texture_to_image(player->mlx->mlx,
+				player->paths->frame1);
 		mlx_image_to_window(player->mlx->mlx, player->mlx->text, 100, 125);
 	}
 }

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   map_err.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:50:56 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/23 04:53:51 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:50:16 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 static size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	count;
@@ -55,7 +56,7 @@ int	get_real_height(char *map)
 	int	i;
 	int	count;
 
-	i  = 0;
+	i = 0;
 	count = 0;
 	while (map[i] && count < 6)
 	{

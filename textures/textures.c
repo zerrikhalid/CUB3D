@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:00:16 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 04:07:44 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:44:51 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-double  get_xtext(double wall_hit, mlx_texture_t *t)
+double	get_xtext(double wall_hit, mlx_texture_t *t)
 {
-	double  xtext;
+	double	xtext;
 	double	text_offset;
 
 	text_offset = fmod(wall_hit, CUBE);
@@ -22,10 +22,10 @@ double  get_xtext(double wall_hit, mlx_texture_t *t)
 	return (xtext);
 }
 
-double  get_ytext(double yloop, double wsh, mlx_texture_t *t)
+double	get_ytext(double yloop, double wsh, mlx_texture_t *t)
 {
-	double  ytext;
-	double  ywall;
+	double	ytext;
+	double	ywall;
 
 	ywall = yloop - ((HEIGHT / 2) - (wsh / 2));
 	ytext = (ywall * t->height) / wsh;
@@ -34,7 +34,7 @@ double  get_ytext(double yloop, double wsh, mlx_texture_t *t)
 
 void	load_png(t_textures *texture)
 {
-	texture->path->no  = mlx_load_png(texture->no);
+	texture->path->no = mlx_load_png(texture->no);
 	texture->path->so = mlx_load_png(texture->so);
 	texture->path->we = mlx_load_png(texture->we);
 	texture->path->ea = mlx_load_png(texture->ea);
@@ -43,7 +43,8 @@ void	load_png(t_textures *texture)
 	check_textloads(texture);
 }
 
-unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y)
+unsigned int	get_texture_color(mlx_texture_t *t,
+					unsigned int x, unsigned int y)
 {
 	unsigned int	*color;
 
@@ -51,7 +52,8 @@ unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y)
 	return (*color);
 }
 
-void	adjust_c(mlx_image_t *image, unsigned int x, unsigned int y, unsigned int c)
+void	adjust_c(mlx_image_t *image, unsigned int x,
+			unsigned int y, unsigned int c)
 {
 	unsigned int	*color;
 
