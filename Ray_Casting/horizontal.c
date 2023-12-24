@@ -1,5 +1,3 @@
-
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -8,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:28:45 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/19 19:54:24 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 23:14:28 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +14,35 @@
 
 static void	find_wall(t_player *player)
 {
-	while (player->hXnext >= 0 && player->hXnext < player->text->mapp_w &&
-		player->hYnext >= 0 && player->hYnext < player->text->mapp_h)
+	int	a;
+	int	b;
+
+	while (player->hxnext >= 0 && player->hxnext < player->text->mapp_w
+		&& player->hynext >= 0 && player->hynext < player->text->mapp_h)
 	{
 		if (isup(player))
 			player->pivot = 1;
-		if (player->text->mapp[(int)(player->hYnext - player->pivot) / CUBE][(int)player->hXnext / CUBE] == '1')
+		a = (int)(player->hynext - player->pivot) / CUBE;
+		b = (int)player->hxnext / CUBE;
+		if (player->text->mapp[a][b] == '1')
 		{
-			player->foundHWall = true;
-			player->hXhitwall = player->hXnext;
-			player->hYhitwall = player->hYnext;
+			player->foundhwall = true;
+			player->hxhitwall = player->hxnext;
+			player->hyhitwall = player->hynext;
 			break ;
 		}
-		player->hXnext += player->hxstep;
-		player->hYnext += player->hystep;
+		player->hxnext += player->hxstep;
+		player->hynext += player->hystep;
 	}
 }
 
 double	xyhorizonral(t_player *player)
 {
-	player->hYintercept = floor(player->y / CUBE) * CUBE;
+	player->hyintercept = floor(player->y / CUBE) * CUBE;
 	if (isdown(player))
-		player->hYintercept += CUBE;
-	player->hXintercept = player->x + ((player->hYintercept - player->y) / tan(player->ray_angle));
+		player->hyintercept += CUBE;
+	player->hxintercept = player->x + ((player->hyintercept - player->y)
+			/ tan(player->ray_angle));
 	player->hystep = CUBE;
 	if (isup(player))
 		player->hystep *= -1;
@@ -47,11 +51,11 @@ double	xyhorizonral(t_player *player)
 		player->hxstep *= -1;
 	if (isright(player) && player->hxstep < 0)
 		player->hxstep *= -1;
-	player->hXnext = player->hXintercept;
-	player->hYnext = player->hYintercept;
+	player->hxnext = player->hxintercept;
+	player->hynext = player->hyintercept;
 	player->pivot = 0;
 	find_wall(player);
-	if (player->foundHWall)
+	if (player->foundhwall)
 		return (distance(player, 0));
 	return (INT_MAX);
 }

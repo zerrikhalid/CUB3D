@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "algorithm": "c"
+        "algorithm": "c",
+        "__bit_reference": "c",
+        "__string": "c",
+        "cstring": "c"
     }
 }

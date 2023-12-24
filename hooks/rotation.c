@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:27:35 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/18 19:32:31 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 22:55:44 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	rotate(t_player *player)
 {
-	player->rotationAngle += player->rotationSpeed * player->turndirection;
-	if (player->rotationAngle > 360)
-		player->rotationAngle -= 360;
-	if (player->rotationAngle < 0)
-		player->rotationAngle += 360;
-} 
- 
+	player->rotationangle += player->rotationspeed * player->turndirection;
+	if (player->rotationangle > 360)
+		player->rotationangle -= 360;
+	if (player->rotationangle < 0)
+		player->rotationangle += 360;
+}

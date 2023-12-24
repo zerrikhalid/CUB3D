@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:26:32 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/16 23:18:21 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 22:48:13 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	parse_arg(char *av)
 	return (ft_putstr("Wrong Extention\n"), 1);
 }
 
-char	**split_map(char *av)
+char	**split_map(t_textures *text, char *av)
 {
 	int		fd;
 	char	**lines;
@@ -49,8 +49,11 @@ char	**split_map(char *av)
 		free(tmp);
 		line2 = get_next_line(fd);
 	}
+	text->map_valid = is_map_valid(line);
 	lines = ft_split(line, '\n');
 	free(line);
+	if (text->map_valid)
+		new_line_err();
 	close(fd);
 	return (lines);
 }

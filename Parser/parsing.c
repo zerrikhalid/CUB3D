@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:38 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/21 00:24:52 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 01:01:21 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,17 @@ void	free_map_text(t_textures *text)
 	free(text->so);
 	free(text->we);
 	free(text->ea);
-	free(text->c);
 	free(text->f);
+	free(text->c);
+	if (text->path->no)
+		mlx_delete_texture(text->path->no);
+	if (text->path->so)
+		mlx_delete_texture(text->path->so);
+	if (text->path->we)
+		mlx_delete_texture(text->path->we);
+	if (text->path->ea)
+		mlx_delete_texture(text->path->ea);
+	free(text->path);
 	while (text->mapp && text->mapp[i])
 	{
 		free(text->mapp[i]);
@@ -95,7 +104,6 @@ int	check_zero_neighbours(char **map)
 					|| (!ft_strchr("01NSWE", map[i - 1][j]))
 					|| !ft_strchr("01NSWE", map[i + 1][j]))
 				{
-					printf("x is : %d\n | y is : %d\n", i, j);
 					ft_putstr("Zero neignbour is invalid\n");
 					return (1);
 				}

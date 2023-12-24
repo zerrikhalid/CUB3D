@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:41:06 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/16 23:18:21 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:59:31 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	check_colors_range(char **s)
 
 void	map_error(t_textures *text)
 {
-	ft_putstr("Error in map\n");
-	free(text);
+	(void)text;
+	ft_putstr("Error\n");
 	exit(1);
 }

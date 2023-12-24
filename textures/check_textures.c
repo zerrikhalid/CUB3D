@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:17:35 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/22 03:01:59 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:43:00 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	check_textloads(t_paths *text, t_textures *texture)
+void	check_textloads(t_textures *texture)
 {
-	if (!text->no || !text->so || !text->ea || !text->we)
+	if (!texture->path->no || !texture->path->so
+		|| !texture->path->ea || !texture->path->we)
 	{
 		free_map_text(texture);
-		free(text);
+		check_frames(texture);
 		exit(1);
 	}
 }
+
 mlx_texture_t	*check_wich_tx(t_paths *paths, t_player *player)
 {
 	if (player->is_vert)
