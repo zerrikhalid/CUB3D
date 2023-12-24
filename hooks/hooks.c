@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:56:59 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 01:23:03 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 04:21:25 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_hook(mlx_key_data_t keydata, void *param)
 		player->sideDirection = -1;
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 		player->sideDirection = 1;
+	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
+		player->stop_mouse *= -1;
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
 		player->turndirection = 1;
 	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)

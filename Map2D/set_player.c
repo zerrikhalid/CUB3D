@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 01:43:36 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 20:32:14 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	floor_ceil(t_player *player)
 }
 void	set_up_player(t_player *player, t_mlx *mlx)
 {
-	player->x = player->text->x * CUBE;
-	player->y = player->text->y * CUBE;
+	player->x = (player->text->x * CUBE) + 32;
+	player->y = (player->text->y * CUBE) + 32;
 	player->text->mapp_h *= CUBE;
 	player->text->mapp_w *= CUBE;
 	player->radius = 7.0;
@@ -51,6 +51,7 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 	player->walkdirection = 0;
 	player->sideDirection = 0;
 	player->rotationSpeed = 1;
+	player->stop_mouse = -1;
 	player->distance_p_plane = (WIDTH / 2) / tan(FOV / 2);
 	floor_ceil(player);
 	raycasting(player);
@@ -60,10 +61,12 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 void	move_player(void *par)
 {
 	t_player *player;
-	int		x;
-	int		y;
+	int			x;
+	int			y;
 
 	player = par;
+	if (player->stop_mouse != 1)
+		return ;
 	if (player->sideDirection || player->turndirection)
 		left_right(player);
 	if (player->walkdirection || player->turndirection)

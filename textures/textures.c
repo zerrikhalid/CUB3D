@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:00:16 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 01:00:40 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 04:07:44 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ double  get_xtext(double wall_hit, mlx_texture_t *t)
 	double	text_offset;
 
 	text_offset = fmod(wall_hit, CUBE);
-	// puts("****");
-	// exit(1);
 	xtext = (text_offset * t->width) / CUBE;
 	return (xtext);
 }

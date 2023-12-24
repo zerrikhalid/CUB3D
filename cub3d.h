@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 01:32:17 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 04:18:38 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ typedef struct s_player
 	double	wallstripheight;
 	int		is_vert;
 	double	wall_inter;
+	int		stop_mouse;
 	t_textures *text;
 	t_paths		*paths;
 	mlx_texture_t *path;
