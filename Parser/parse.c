@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:21:14 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/20 23:01:48 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/23 04:29:47 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	glob_pars(char **av, t_textures *text)
 {
 	char	**lines;
 
-	lines = split_map(av[1]);
+	lines = split_map(text, av[1]);
 	get_textures(text, lines);
 	map_retriever(text, lines);
 	check_map(text);
-	get_rotaion_angle(text);
 	get_map_lenght(text);
+	get_rotaion_angle(text);
 }
 
 void	get_rotaion_angle(t_textures *text)

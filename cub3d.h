@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/22 17:50:56 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 01:32:17 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@
 # define NUM_RAYS WIDTH
 # define FOV (60.0 * (PI / 180.0))
 
+typedef struct s_paths
+{
+	mlx_texture_t *no;
+	mlx_texture_t *so;
+	mlx_texture_t *ea;
+	mlx_texture_t *we;
+	mlx_texture_t *frame1;
+	mlx_texture_t *frame2;
+}t_paths;
+
 typedef struct s_textures
 {
 	char	*no;
@@ -43,30 +53,26 @@ typedef struct s_textures
 	char	**mapp;
 	int		x;
 	int		y;
-	int		c_color;
-	int		f_color;
+	unsigned int		c_color;
+	unsigned int		f_color;
 	int		mapp_h;
 	int		mapp_w;
+	int		map_valid;
 	double	ra;
+	t_paths *path;
 }	t_textures;
 
 typedef struct s_mlx
 {
 	mlx_t			*mlx;
 	mlx_image_t		*img;
+	mlx_image_t		*text;
 	double			coord1;
 	double			coord2;
 	int				color;
 	t_textures		*texture;
 }t_mlx;
 
-typedef struct s_paths
-{
-	mlx_texture_t *no;
-	mlx_texture_t *so;
-	mlx_texture_t *ea;
-	mlx_texture_t *we;
-}t_paths;
 
 typedef struct s_player
 {
@@ -120,7 +126,7 @@ char	*ft_substr(char	*s, int start, int len);
 int		ft_strlen(char *s);
 char	*get_next_line(int fd);
 char	**ft_split(char *s, char c);
-char	**split_map(char *av);
+char	**split_map(t_textures *text, char *av);
 int		parse_arg(char *av);
 int		ft_strncmp(char *s1, char *s2, int n);
 void	get_textures(t_textures *text, char **map_components);
@@ -184,10 +190,15 @@ void	get_rotaion_angle(t_textures *text);
 void	get_map_lenght(t_textures *text);
 double  get_xtext(double wall_hit, mlx_texture_t *t);
 double  get_ytext(double yloop, double wsh, mlx_texture_t *t);
-int 	load_png(t_paths *text, t_textures *texture);
+void	load_png(t_textures *texture);
 unsigned int	get_texture_color(mlx_texture_t *t, unsigned int x, unsigned int y);
 void	adjust_c(mlx_image_t *image, unsigned int xtext, unsigned int ytext, unsigned int c);
-void	check_textloads(t_paths *text, t_textures *texture);
+void	check_textloads(t_textures *texture);
 mlx_texture_t	*check_wich_tx(t_paths *text, t_player *player);
+int	get_real_height(char *map);
+int	is_map_valid(char *line);
+void	put_fframe(t_player *player, int flag);
+void	check_frames(t_textures *text);
+void	ft_mouse_hook(mouse_key_t keydata, action_t action, modifier_key_t mods, void* param);
 
 #endif

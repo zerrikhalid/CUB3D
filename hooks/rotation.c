@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:27:35 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/18 19:32:31 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/23 06:05:16 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,4 @@ void	rotate(t_player *player)
 		player->rotationAngle -= 360;
 	if (player->rotationAngle < 0)
 		player->rotationAngle += 360;
-} 
- 
+}

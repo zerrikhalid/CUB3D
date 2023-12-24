@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 16:11:30 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/22 18:40:16 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 01:54:44 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int main(int ac, char **av)
 	memset(texture, 0, sizeof(t_textures));
 	text_paths = malloc(sizeof(t_paths));
 	memset(text_paths, 0, sizeof(t_paths));
-	glob_pars(av, texture);
-	load_png(text_paths, texture);
 	player.text = texture;
 	player.paths = text_paths;
+	texture->path = text_paths;
+	glob_pars(av, texture);
+	load_png(texture);
 	set_up_window(&mlx, &player);
 	keep_window_opened(&mlx, &player);
 	free_map_text(texture);

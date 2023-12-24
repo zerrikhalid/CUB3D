@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/22 17:29:35 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/24 01:43:36 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,24 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 void	move_player(void *par)
 {
 	t_player *player;
+	int		x;
+	int		y;
 
 	player = par;
 	if (player->sideDirection || player->turndirection)
 		left_right(player);
 	if (player->walkdirection || player->turndirection)
 		up_down(player);
+	mlx_get_mouse_pos(player->mlx->mlx, &x, &y);
+	x -= WIDTH / 2;
+	player->rotationAngle += (double)x / 10;
+	mlx_set_mouse_pos(player->mlx->mlx, WIDTH / 2, HEIGHT / 2);
+	mlx_set_cursor_mode(player->mlx->mlx, MLX_MOUSE_HIDDEN);
 	mlx_delete_image(player->mlx->mlx, player->mlx->img);
 	player->mlx->img = mlx_new_image(player->mlx->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(player->mlx->mlx, player->mlx->img, 0, 0);
+	mlx_set_instance_depth(player->mlx->img->instances, 0);
 	floor_ceil(player);
 	raycasting(player);
 }
+

@@ -6,18 +6,19 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:17:35 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/22 03:01:59 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/24 01:07:44 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	check_textloads(t_paths *text, t_textures *texture)
+void	check_textloads(t_textures *texture)
 {
-	if (!text->no || !text->so || !text->ea || !text->we)
+	if (!texture->path->no || !texture->path->so
+		|| !texture->path->ea || !texture->path->we)
 	{
 		free_map_text(texture);
-		free(text);
+		check_frames(texture);
 		exit(1);
 	}
 }
