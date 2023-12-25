@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:28:45 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:50:42 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:02:50 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	is_valid_textures(t_textures *text)
 	c = 0;
 	if (!text->no || !text->so || !text->we
 		|| !text->ea || !text->c || !text->f)
-		return (ft_putstr("Empty texture\n"), 1);
+		return (ft_putstr("Error\nError in texture\n"), 1);
 	if (check_c_f(text->c) || check_c_f(text->f))
 		return (1);
 	str = ft_split_set(text->c, " \t,");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_err.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 02:50:56 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:50:16 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:02:47 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,18 @@ int	get_real_height(char *map)
 	return (i);
 }
 
-int	is_map_valid(char *line)
+int	is_map_valid(char *line, t_textures *text)
 {
 	int		i;
 	char	*trimed;
 	int		flag;
 
+	if (!line)
+	{
+		ft_putstr("Error\nNo file to read from.\n");
+		free_map_text(text);
+		exit(1);
+	}
 	i = get_real_height(line);
 	trimed = ft_strtrim(line, "\n");
 	flag = 0;

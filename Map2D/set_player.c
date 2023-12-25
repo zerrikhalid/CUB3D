@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 23:49:56 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:27:21 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set_up_player(t_player *player, t_mlx *mlx)
 	player->rotationangle = player->text->ra;
 	player->mlx = mlx;
 	player->fov = (60 * PI) / 180;
-	player->movespeed = 6;
+	player->movespeed = 4;
 	player->turndirection = 0;
 	player->walkdirection = 0;
 	player->sidedirection = 0;

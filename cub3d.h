@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:31:02 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 23:49:20 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 05:55:35 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,11 +201,11 @@ void			adjust_c(mlx_image_t *image, unsigned int xtext,
 void			check_textloads(t_textures *texture);
 mlx_texture_t	*check_wich_tx(t_paths *text, t_player *player);
 int				get_real_height(char *map);
-int				is_map_valid(char *line);
 void			put_fframe(t_player *player, int flag);
 void			check_frames(t_textures *text);
 void			ft_mouse_hook(mouse_key_t keydata, action_t action,
 					modifier_key_t mods, void *param);
 void			new_line_err(void);
+int				is_map_valid(char *line, t_textures *text);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:21:14 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:47:34 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:00:24 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void	get_map_lenght(t_textures *text)
 
 void	new_line_err(void)
 {
-	ft_putstr("newlines inside the map\n");
+	ft_putstr("Error\nnewlines inside the map\n");
 	exit (1);
 }

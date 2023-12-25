@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:38 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 01:01:21 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/25 06:02:42 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ int	check_pos(char **map, t_textures *text)
 	player = 0;
 	if (check_pos_helper(map, &player, text))
 	{
-		ft_putstr("Player neighbour is invalid\n");
+		ft_putstr("Error\ninvalid Player neighbour\n");
 		return (1);
 	}
 	if (player == 1)
 		return (0);
-	ft_putstr("More than one player or non found\n");
+	ft_putstr("Error\n more than 1 or no player found!!\n");
 	return (1);
 }
 
@@ -104,7 +104,7 @@ int	check_zero_neighbours(char **map)
 					|| (!ft_strchr("01NSWE", map[i - 1][j]))
 					|| !ft_strchr("01NSWE", map[i + 1][j]))
 				{
-					ft_putstr("Zero neignbour is invalid\n");
+					ft_putstr("Error\n Invalid Zero neighbour\n");
 					return (1);
 				}
 			}

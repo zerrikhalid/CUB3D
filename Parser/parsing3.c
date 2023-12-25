@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:52:09 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/23 04:37:32 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/25 06:04:48 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_borders(char **map)
 	while (map[i][j])
 	{
 		if (map[i][j] != '1' && map[i][j] != ' ' && map[i][j] != '\t')
-			return (ft_putstr("Border not closed1\n"), 1);
+			return (ft_putstr("Error\n Border not closed\n"), 1);
 		j++;
 	}
 	while (map[i])
@@ -56,7 +56,7 @@ int	check_borders(char **map)
 	while (map[i][j])
 	{
 		if (map[i][j] != '1' && map[i][j] != ' ' && map[i][j] != '\t')
-			return (ft_putstr("Border not closed2\n"), 1);
+			return (ft_putstr("Error\nBorder not closed\n"), 1);
 		j++;
 	}
 	check_side(map);
@@ -69,12 +69,12 @@ int	check_side_borders(char	*map)
 
 	i = 0;
 	if (map[i] != '1' && map[i] != ' ' && map[i] != '\t')
-		return (ft_putstr("border not closed3\n"), 1);
+		return (ft_putstr("Error\nBorder not closed\n"), 1);
 	while (map[i])
 		i++;
 	i -= 1;
 	if (map[i] != '1' && map[i] != ' ' && map[i] != '\t')
-		return (ft_putstr("border not closed4\n"), 1);
+		return (ft_putstr("Error\nBorder not closed\n"), 1);
 	return (0);
 }
 
