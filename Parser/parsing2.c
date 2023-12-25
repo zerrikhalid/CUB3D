@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:26:32 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:48:13 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:14:39 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	parse_arg(char *av)
 		}
 		i++;
 	}
-	return (ft_putstr("Wrong Extention\n"), 1);
+	return (ft_putstr("Error\n Map extension shoud be .cub\n"), 1);
 }
 
 char	**split_map(t_textures *text, char *av)
@@ -38,7 +38,7 @@ char	**split_map(t_textures *text, char *av)
 	char	*tmp;
 
 	lines = NULL;
-	fd = open(av, O_CREAT | O_RDWR, 0777);
+	fd = open(av, O_RDONLY);
 	line = get_next_line(fd);
 	line2 = get_next_line(fd);
 	while (line2)
@@ -49,7 +49,7 @@ char	**split_map(t_textures *text, char *av)
 		free(tmp);
 		line2 = get_next_line(fd);
 	}
-	text->map_valid = is_map_valid(line);
+	text->map_valid = is_map_valid(line, text);
 	lines = ft_split(line, '\n');
 	free(line);
 	if (text->map_valid)
@@ -83,7 +83,7 @@ int	check_texture_args(char **av)
 		i++;
 	if (i != 2)
 	{
-		ft_putstr("Wrong format in texture\n");
+		ft_putstr("Error\nWrong arg number in texture\n");
 		return (1);
 	}
 	return (0);

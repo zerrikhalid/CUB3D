@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:00:16 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:44:51 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:25:45 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	load_png(t_textures *texture)
 	texture->path->so = mlx_load_png(texture->so);
 	texture->path->we = mlx_load_png(texture->we);
 	texture->path->ea = mlx_load_png(texture->ea);
-	texture->path->frame1 = mlx_load_png("frame1.png");
-	texture->path->frame2 = mlx_load_png("frame2.png");
+	texture->path->frame1 = mlx_load_png("frames/frame1.png");
+	texture->path->frame2 = mlx_load_png("frames/frame2.png");
 	check_textloads(texture);
 }
 

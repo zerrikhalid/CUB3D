@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 16:41:06 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 00:59:31 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/12/25 06:33:13 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_map_caracters(char **map)
 				&& map[i][j] != 'E' && map[i][j] != 'W'
 				&& map[i][j] != ' ' && map[i][j] != '\t')
 			{
-				ft_putstr("Invalid caracters in map\n");
+				ft_putstr("Error\n Invalid map caracter\n");
 				return (1);
 			}
 			j++;
@@ -65,15 +65,15 @@ int	check_c_f(char *s)
 		i++;
 	}
 	if (count != 2)
-		return (ft_putstr("Error in Textures1\n"), 1);
+		return (ft_putstr("Error\n2 ARrgs needed!!"), 1);
 	str = ft_split_set(s, " \t,");
 	i = 0;
 	while (str && str[i])
 		i++;
 	if (i != 3)
-		return (free_all(str), ft_putstr("Error in Textures2\n"), 1);
+		return (free_all(str), ft_putstr("Error\n3 Colors needed\n"), 1);
 	if (check_colors_range(str))
-		return (free_all(str), ft_putstr("Error in colors\n"), 1);
+		return (free_all(str), ft_putstr("Error\n3 colors range[0->255]\n"), 1);
 	free_all(str);
 	return (0);
 }
@@ -96,6 +96,6 @@ int	check_colors_range(char **s)
 void	map_error(t_textures *text)
 {
 	(void)text;
-	ft_putstr("Error\n");
+	ft_putstr("Error\nError in Map components\n");
 	exit(1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 23:17:35 by araji-af          #+#    #+#             */
-/*   Updated: 2023/12/24 22:43:00 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:20:09 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	check_textloads(t_textures *texture)
 	if (!texture->path->no || !texture->path->so
 		|| !texture->path->ea || !texture->path->we)
 	{
+		ft_putstr("Error\nFailed to load PNG!!");
 		free_map_text(texture);
 		check_frames(texture);
 		exit(1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kzerri <kzerri@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 16:11:30 by kzerri            #+#    #+#             */
-/*   Updated: 2023/12/24 23:19:33 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/12/25 06:32:40 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	t_paths		*text_paths;
 
 	if (ac != 2)
-		return (ft_putstr("Error\n"), 1);
+		return (ft_putstr("Error\nmap required\n"), 1);
 	if (parse_arg(av[1]))
 		return (1);
 	texture = malloc(sizeof(t_textures));
